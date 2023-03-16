@@ -21,7 +21,7 @@ let getImg = async () => {
 				let photo = photos[index];
 				let svgElement = document.querySelector(".card-img-top");
 				let imgElement = document.createElement("img");
-				imgElement.setAttribute("src", photo.src.large);
+				imgElement.setAttribute("src", photo.src.landscape);
 				imgElement.setAttribute("alt", photo.alt);
 				svgElement.replaceWith(imgElement);
 				let title = card.querySelector(".card-title");
@@ -31,6 +31,35 @@ let getImg = async () => {
 				let small = card.querySelector("small");
 				small.textContent = `${photo.id}`;
 
+				//	let viewBtn = card.querySelector(".btn-group button:nth-child(1)");
+				//	viewBtn.setAttribute("data-toggle", "modal");
+				//	viewBtn.setAttribute("data-target", "#exampleModal");
+				//	viewBtn.addEventListener("click", () => {
+				//		let modalBox = document.createElement("div");
+				//
+				//		modalBox.innerHTML = `
+				//        <div class="modal" tabindex="-1">
+				//            <div class="modal-dialog">
+				//                <div class="modal-content">
+				//                <div class="modal-header">
+				//                    <h5 class="modal-title">${photo.photographer}</h5>
+				//                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				//                    <span aria-hidden="true">&times;</span>
+				//                    </button>
+				//                </div>
+				//                <div class="modal-body">
+				//                    ${imgElement}
+				//                </div>
+				//                <div class="modal-footer">
+				//                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				//                    <button type="button" class="btn btn-primary">Save changes</button>
+				//                </div>
+				//                </div>
+				//            </div>
+				//            </div>
+				//        `;
+				//
+				//	});
 				let deleteBtn = card.querySelector(".btn-group button:nth-child(2)");
 				deleteBtn.textContent = "Hide";
 				deleteBtn.addEventListener("click", () => {
@@ -61,7 +90,7 @@ let getImg2 = async () => {
 				let photo = photos[index];
 				let svgElement = document.querySelector(".card-img-top");
 				let imgElement = document.createElement("img");
-				imgElement.setAttribute("src", photo.src.large);
+				imgElement.setAttribute("src", photo.src.landscape);
 				imgElement.setAttribute("alt", photo.alt);
 				svgElement.replaceWith(imgElement);
 				let title = card.querySelector(".card-title");
@@ -100,7 +129,7 @@ let getNewImages = async (searchValue) => {
 			let photo = photos[index];
 			let svgElement = document.querySelector(".card-img-top");
 			let imgElement = document.createElement("img");
-			imgElement.setAttribute("src", photo.src.large);
+			imgElement.setAttribute("src", photo.src.landscape);
 			imgElement.setAttribute("alt", photo.alt);
 			svgElement.replaceWith(imgElement);
 			let title = card.querySelector(".card-title");
