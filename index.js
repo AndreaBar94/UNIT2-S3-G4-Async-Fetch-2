@@ -122,3 +122,4 @@ let getNewImages = async () => {
 		console.log(error);
 	}
 };
+getNewImages();
