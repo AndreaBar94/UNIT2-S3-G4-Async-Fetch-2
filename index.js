@@ -26,6 +26,8 @@ let getImg = async () => {
 				title.innerHTML = photo.alt;
 				let photographer = card.querySelector(".card-text");
 				photographer.innerHTML = `This photograph was taken by ${photo.photographer}`;
+				let small = card.querySelector("small");
+				small.textContent = `${photo.id}`;
 
 				let deleteBtn = card.querySelector(".btn-group button:nth-child(2)");
 				deleteBtn.textContent = "Hide";
@@ -64,6 +66,14 @@ let getImg2 = async () => {
 				title.innerHTML = photo.alt;
 				let photographer = card.querySelector(".card-text");
 				photographer.innerHTML = `This photograph was taken by ${photo.photographer}`;
+				let small = card.querySelector("small");
+				small.textContent = `${photo.id}`;
+
+				let deleteBtn = card.querySelector(".btn-group button:nth-child(2)");
+				deleteBtn.textContent = "Hide";
+				deleteBtn.addEventListener("click", () => {
+					card.remove();
+				});
 			});
 		});
 	} catch (error) {
