@@ -31,35 +31,37 @@ let getImg = async () => {
 				let small = card.querySelector("small");
 				small.textContent = `${photo.id}`;
 
-				//	let viewBtn = card.querySelector(".btn-group button:nth-child(1)");
-				//	viewBtn.setAttribute("data-toggle", "modal");
-				//	viewBtn.setAttribute("data-target", "#exampleModal");
-				//	viewBtn.addEventListener("click", () => {
-				//		let modalBox = document.createElement("div");
-				//
-				//		modalBox.innerHTML = `
-				//        <div class="modal" tabindex="-1">
-				//            <div class="modal-dialog">
-				//                <div class="modal-content">
-				//                <div class="modal-header">
-				//                    <h5 class="modal-title">${photo.photographer}</h5>
-				//                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				//                    <span aria-hidden="true">&times;</span>
-				//                    </button>
-				//                </div>
-				//                <div class="modal-body">
-				//                    ${imgElement}
-				//                </div>
-				//                <div class="modal-footer">
-				//                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				//                    <button type="button" class="btn btn-primary">Save changes</button>
-				//                </div>
-				//                </div>
-				//            </div>
-				//            </div>
-				//        `;
-				//
-				//	});
+				let viewBtn = card.querySelector(".btn-group button:nth-child(1)");
+				viewBtn.setAttribute("data-toggle", "modal");
+				viewBtn.setAttribute("data-target", "#exampleModal");
+
+				viewBtn.addEventListener("click", () => {
+					let modalBox = document.createElement("div");
+
+					modalBox.innerHTML = `
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">${photo.photographer}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="img-fluid" src="${photo.src.landscape}" alt="${photo.alt}">
+                            </div>
+                            <div class="modal-footer">
+                            <a href="${photo.photographer_url}" >${photo.photographer_url}</a>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    `;
+
+					document.body.insertAdjacentElement("beforeend", modalBox);
+				});
+
 				let deleteBtn = card.querySelector(".btn-group button:nth-child(2)");
 				deleteBtn.textContent = "Hide";
 				deleteBtn.addEventListener("click", () => {
